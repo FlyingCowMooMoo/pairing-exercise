@@ -38,5 +38,5 @@ services:
       - service.env
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.organisations.rule=PathPrefix(`/swagger-ui`) || PathPrefix(`/organisations`) || PathPrefix(`/countries`)"
+      - "traefik.http.routers.organisations.rule=PathPrefix(`/swagger-ui`) || PathPrefix(`/organisations`) || PathPrefix(`/countries`)|| PathPrefix(`/invoices`) || PathPrefix(`/currencies`)"
       - "traefik.http.services.organisations.loadbalancer.server.port=80"

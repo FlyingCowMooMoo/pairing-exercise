@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+
+cd "$(dirname "$0")/.."
+
+# rebuild if necessary
+docker compose down
+docker-compose build database
+
+
+#Run the database
+docker compose up database -d
+
+#Run the migrations
+./gradlew clean build -x test flywayMigrate
